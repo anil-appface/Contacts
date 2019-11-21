@@ -7,3 +7,17 @@
 //
 
 import Foundation
+import UIKit
+
+class ContactTableViewCell: UITableViewCell {
+    
+    static let resuseIdentifier = "ContactTableViewCellIdentifier"
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    var contact: Contact? {
+        didSet {
+            nameLabel.text = contact?.firstName
+        }
+    }
+    
+}

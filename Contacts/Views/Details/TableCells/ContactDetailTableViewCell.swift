@@ -13,6 +13,16 @@ import UIKit
 class ContactDetailTableViewCell: UITableViewCell
 {
     
+    static let reuseIdentifier = "ContactDetailTableViewCellIdentifier"
     
+    var contactAttribute: ContactAttribute? {
+        didSet {
+            keyLabel?.text = contactAttribute?.key
+            valueLabel?.text = contactAttribute?.value
+        }
+    }
+    
+    @IBOutlet weak var keyLabel: UILabel?
+    @IBOutlet weak var valueLabel: UILabel?
     
 }

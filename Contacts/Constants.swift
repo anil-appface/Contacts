@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+
+struct ViewControllerSegue {
+    
+    static let ContactsDetailViewControllerSegue = "ContactDetailViewControllerSegue"
+    
+}

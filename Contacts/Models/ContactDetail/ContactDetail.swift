@@ -7,3 +7,46 @@
 //
 
 import Foundation
+
+struct ContactAttribute {
+    
+    var key: String?
+    var value: String?
+    
+}
+
+struct ContactDetail : IContactModel, Hashable {
+    
+    let id : Int?
+    let firstName : String?
+    let lastName : String?
+    let profilePic : String?
+    let favorite : Bool?
+    let url : String?
+    let email: String?
+    let phoneNumber: String?
+    
+    enum CodingKeys: String, CodingKey {
+        
+        case id = "id"
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case profilePic = "profile_pic"
+        case favorite = "favorite"
+        case email = "email"
+        case phoneNumber = "phone_number"
+        case url = "url"
+    }
+}
+
+
+
+
+// MARK: Convenience initializers
+extension ContactDetail {
+    
+    init(data: Data) throws {
+        self = try JSONDecoder().decode(ContactDetail.self, from: data)
+    }
+    
+}

@@ -14,8 +14,6 @@ protocol ContactViewModelDelegate: class {
 
 
 class ContactViewModel {
-    
-    var isLoading: Bool = false
 
     private (set) var contactsDictionary: [String: [Contact]] = [:] {
         didSet {
@@ -44,7 +42,7 @@ extension ContactViewModel {
    
     
      func fetchAllContacts() {
-        isLoading = true
+
         requester.request(parameter: [Contact].self, method: .get, url: ContactViewModel.contactsUrl) { (result) in
             switch result {
             case .success(let response):
