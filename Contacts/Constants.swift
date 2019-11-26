@@ -12,5 +12,6 @@ import Foundation
 struct ViewControllerSegue {
     
     static let ContactsDetailViewControllerSegue = "ContactDetailViewControllerSegue"
-    
+    static let CreateContactViewSegue = "CreateContactSegueIdentifier"
+    static let EditContactViewSegue = "EditContactSegueIdentifier"
 }

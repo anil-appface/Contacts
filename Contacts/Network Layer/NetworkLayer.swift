@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct GojekError: Codable, Error {
+    var errors: [String]?
+}
+
 enum NetworkError: Error {
     case badUrl
     case parsingError
@@ -18,14 +22,11 @@ enum NetworkError: Error {
 public enum Method {
     case get
     case post
+    case put
+    case delete
     case other(method: String)
 }
 
-enum NetworkingError: String, LocalizedError {
-    case jsonError = "JSON error"
-    case other
-    var localizedDescription: String { return NSLocalizedString(self.rawValue, comment: "") }
-}
 
 extension Method {
     public init(_ rawValue: String) {
@@ -36,6 +37,10 @@ extension Method {
             self = .get
         case "POST":
             self = .post
+        case "PUT":
+            self = .put
+        case "DELETE":
+            self = .delete
         default:
             self = .other(method: method)
         }
@@ -47,6 +52,8 @@ extension Method: CustomStringConvertible {
         switch self {
         case .get:               return "GET"
         case .post:              return "POST"
+        case .put:              return "PUT"
+        case .delete:              return "DELETE"
         case .other(let method): return method.uppercased()
         }
     }
@@ -58,16 +65,22 @@ protocol Requestable {
 
 extension Requestable {
     
-
-    internal func request<T: Codable>(parameter: T.Type , method: Method, url: String, params: [NSString: Any]? = nil, completionHandler: @escaping (Result<T, Error>) -> Void) {
+    
+    internal func request<T: Codable>(parameter: T.Type , method: Method, url: String, httpBody: Data? = nil, completionHandler: @escaping (Result<T, Error>) -> Void) {
         
         guard let url = URL(string: url) else {
             completionHandler(.failure(NetworkError.badUrl))
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url,  completionHandler: { (data, response, error) in
-
+        var request = URLRequest(url: url)
+        request.httpMethod = method.description
+        request.httpBody = httpBody        
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: request,  completionHandler: { (data, response, error) in
+            
             DispatchQueue.main.async {
                 
                 if let error = error {
@@ -79,9 +92,12 @@ extension Requestable {
                     if httpResponse.statusCode == 200 ,let result = try? JSONDecoder().decode(T.self, from: data!) {
                         completionHandler(.success(result))
                     }
-                    
-                    completionHandler(.failure(NetworkError.parsingError))
-                    
+                    else if let result = try? JSONDecoder().decode(GojekError.self, from: data!){
+                        completionHandler(.failure(result))
+                    }
+                    else {
+                        completionHandler(.failure(NetworkError.parsingError))
+                    }
                 }
             }
         })

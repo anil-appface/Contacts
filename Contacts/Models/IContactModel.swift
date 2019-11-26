@@ -24,12 +24,7 @@ protocol IContactModel: Codable {
 
 extension IContactModel {
     
-    func jsonData() throws -> Data {
-        return try JSONEncoder().encode(self)
+    func jsonData() -> Data? {
+        return try? JSONEncoder().encode(self)
     }
-    
-    func jsonString(encoding: String.Encoding = .utf8) throws -> String? {
-        return String(data: try self.jsonData(), encoding: encoding)
-    }
-    
 }

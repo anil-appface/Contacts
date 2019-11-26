@@ -17,7 +17,26 @@ class ContactTableViewCell: UITableViewCell {
     var contact: Contact? {
         didSet {
             nameLabel.text = contact?.firstName
+            
+            
+            accessoryView = UIImageView(image: (contact?.favorite == true) ?
+                #imageLiteral(resourceName: "home_favourite"):  nil)
+            accessoryView?.inputView?.backgroundColor = .red
+            
+            
         }
     }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: true)
+        
+        contentView.backgroundColor = highlighted ? .lightGray : .none
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        contentView.backgroundColor = selected ? .lightGray : .none
+    }
+    
     
 }

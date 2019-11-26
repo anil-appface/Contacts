@@ -18,13 +18,13 @@ struct ContactAttribute {
 struct ContactDetail : IContactModel, Hashable {
     
     let id : Int?
-    let firstName : String?
-    let lastName : String?
-    let profilePic : String?
-    let favorite : Bool?
-    let url : String?
-    let email: String?
-    let phoneNumber: String?
+    var firstName : String?
+    var lastName : String?
+    var profilePic : String?
+    var favorite : Bool?
+    var url : String?
+    var email: String?
+    var phoneNumber: String?
     
     enum CodingKeys: String, CodingKey {
         

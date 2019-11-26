@@ -13,8 +13,8 @@ protocol ContactViewModelDelegate: class {
 }
 
 
-class ContactViewModel {
-
+class ContactViewModel: BaseViewModel {
+    
     private (set) var contactsDictionary: [String: [Contact]] = [:] {
         didSet {
             allSections = contactsDictionary.keys.sorted()
@@ -27,8 +27,8 @@ class ContactViewModel {
     
     private let requester: Requestable = Requester()
     
-    
-    static let contactsUrl = "http://gojek-contacts-app.herokuapp.com/contacts.json"
+    let contactsUrl = "http://gojek-contacts-app.herokuapp.com/contacts.json"
+    var deleteContactUrl = "http://gojek-contacts-app.herokuapp.com/contacts/{id}.json"
     
     init() {
         
@@ -37,13 +37,10 @@ class ContactViewModel {
 }
 
 extension ContactViewModel {
-
-  
-   
     
-     func fetchAllContacts() {
-
-        requester.request(parameter: [Contact].self, method: .get, url: ContactViewModel.contactsUrl) { (result) in
+    func fetchAllContacts() {
+        
+        requester.request(parameter: [Contact].self, method: .get, url: contactsUrl) { (result) in
             switch result {
             case .success(let response):
                 
@@ -54,7 +51,31 @@ extension ContactViewModel {
             }
         }
     }
-
+    
+    func deleteContact(contact: Contact) {
+        
+        deleteContactUrl = deleteContactUrl.replacingOccurrences(of: "{id}", with: String(contact.id!))
+        
+        requester.request(parameter: Contact.self, method: .delete, url: deleteContactUrl) { (result) in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func deleteContactAt(indexPath: IndexPath) {
+        
+        
+        if let contact = getContactAt(section: indexPath.section, row: indexPath.row) {
+            deleteContact(contact: contact)
+            contactsDictionary[allSections[indexPath.section]]?.remove(at: indexPath.row)
+        }
+        
+    }
+    
     
 }
 

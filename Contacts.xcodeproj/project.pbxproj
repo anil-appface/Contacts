@@ -22,11 +22,17 @@
 		9E37AED223854CA100F0BC55 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37AED123854CA100F0BC55 /* ContactTableViewCell.swift */; };
 		9E37AED423856F0F00F0BC55 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37AED323856F0F00F0BC55 /* Constants.swift */; };
 		9E37AED72385733800F0BC55 /* ContactDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E37AED62385733800F0BC55 /* ContactDetailViewModel.swift */; };
+		9E90D46F238C54CD00AC2844 /* CreateEditContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E90D46E238C54CD00AC2844 /* CreateEditContactTableViewCell.swift */; };
+		9E90D471238D02A800AC2844 /* uiviewcontroller-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E90D470238D02A800AC2844 /* uiviewcontroller-extension.swift */; };
 		9EB304EC238683350082B1B1 /* uiview-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB304EB238683340082B1B1 /* uiview-extension.swift */; };
 		9EB304F0238689C00082B1B1 /* IContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB304EF238689C00082B1B1 /* IContactModel.swift */; };
 		9EB304F423868A2B0082B1B1 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB304F323868A2B0082B1B1 /* Contact.swift */; };
 		9EB304F623868A9A0082B1B1 /* ContactDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB304F523868A9A0082B1B1 /* ContactDetail.swift */; };
 		9EB304F923868CCA0082B1B1 /* ContactDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB304F823868CCA0082B1B1 /* ContactDetailTableViewCell.swift */; };
+		9EB304FE2387F0AA0082B1B1 /* CreateEditContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB304FD2387F0AA0082B1B1 /* CreateEditContactViewModel.swift */; };
+		9EB30500238C08660082B1B1 /* string-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB304FF238C08660082B1B1 /* string-extension.swift */; };
+		9EB30503238C0CA10082B1B1 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB30502238C0CA10082B1B1 /* GradientView.swift */; };
+		9EB30506238C2E6D0082B1B1 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB30505238C2E6D0082B1B1 /* BaseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,11 +74,17 @@
 		9E37AED123854CA100F0BC55 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		9E37AED323856F0F00F0BC55 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9E37AED62385733800F0BC55 /* ContactDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewModel.swift; sourceTree = "<group>"; };
+		9E90D46E238C54CD00AC2844 /* CreateEditContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditContactTableViewCell.swift; sourceTree = "<group>"; };
+		9E90D470238D02A800AC2844 /* uiviewcontroller-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "uiviewcontroller-extension.swift"; sourceTree = "<group>"; };
 		9EB304EB238683340082B1B1 /* uiview-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "uiview-extension.swift"; sourceTree = "<group>"; };
 		9EB304EF238689C00082B1B1 /* IContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IContactModel.swift; sourceTree = "<group>"; };
 		9EB304F323868A2B0082B1B1 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		9EB304F523868A9A0082B1B1 /* ContactDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetail.swift; sourceTree = "<group>"; };
 		9EB304F823868CCA0082B1B1 /* ContactDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailTableViewCell.swift; sourceTree = "<group>"; };
+		9EB304FD2387F0AA0082B1B1 /* CreateEditContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEditContactViewModel.swift; sourceTree = "<group>"; };
+		9EB304FF238C08660082B1B1 /* string-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "string-extension.swift"; sourceTree = "<group>"; };
+		9EB30502238C0CA10082B1B1 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		9EB30505238C2E6D0082B1B1 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +181,7 @@
 		9E19447C2383BE6200CDD5C7 /* Create_Edit */ = {
 			isa = PBXGroup;
 			children = (
+				9E90D46D238C54BE00AC2844 /* TableCells */,
 				9E19447E2383BE9900CDD5C7 /* CreateEditContactViewController.swift */,
 			);
 			path = Create_Edit;
@@ -209,10 +222,21 @@
 			path = "Network Layer";
 			sourceTree = "<group>";
 		};
+		9E90D46D238C54BE00AC2844 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				9E90D46E238C54CD00AC2844 /* CreateEditContactTableViewCell.swift */,
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
 		9EB304EA238681CB0082B1B1 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9EB30501238C0C940082B1B1 /* Custom Views */,
 				9EB304EB238683340082B1B1 /* uiview-extension.swift */,
+				9EB304FF238C08660082B1B1 /* string-extension.swift */,
+				9E90D470238D02A800AC2844 /* uiviewcontroller-extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -230,8 +254,10 @@
 		9EB304EE238689B00082B1B1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				9EB30504238C2E5B0082B1B1 /* BaseModel */,
 				9E19448D2384725700CDD5C7 /* ContactViewModel.swift */,
 				9E37AED62385733800F0BC55 /* ContactDetailViewModel.swift */,
+				9EB304FD2387F0AA0082B1B1 /* CreateEditContactViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -258,6 +284,22 @@
 				9EB304F823868CCA0082B1B1 /* ContactDetailTableViewCell.swift */,
 			);
 			path = TableCells;
+			sourceTree = "<group>";
+		};
+		9EB30501238C0C940082B1B1 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				9EB30502238C0CA10082B1B1 /* GradientView.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		9EB30504238C2E5B0082B1B1 /* BaseModel */ = {
+			isa = PBXGroup;
+			children = (
+				9EB30505238C2E6D0082B1B1 /* BaseModel.swift */,
+			);
+			path = BaseModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,18 +436,24 @@
 				9E19448C23846E6200CDD5C7 /* NetworkLayer.swift in Sources */,
 				9E19448E2384725700CDD5C7 /* ContactViewModel.swift in Sources */,
 				9EB304F0238689C00082B1B1 /* IContactModel.swift in Sources */,
+				9E90D471238D02A800AC2844 /* uiviewcontroller-extension.swift in Sources */,
 				9E37AED72385733800F0BC55 /* ContactDetailViewModel.swift in Sources */,
 				9E1944812383BEA500CDD5C7 /* ContactDetailViewController.swift in Sources */,
 				9EB304F423868A2B0082B1B1 /* Contact.swift in Sources */,
 				9E19447F2383BE9900CDD5C7 /* CreateEditContactViewController.swift in Sources */,
 				9EB304F623868A9A0082B1B1 /* ContactDetail.swift in Sources */,
+				9EB30503238C0CA10082B1B1 /* GradientView.swift in Sources */,
 				9E37AED423856F0F00F0BC55 /* Constants.swift in Sources */,
 				9E1944832383C9F900CDD5C7 /* ContactsTableViewController.swift in Sources */,
 				9EB304F923868CCA0082B1B1 /* ContactDetailTableViewCell.swift in Sources */,
 				9EB304EC238683350082B1B1 /* uiview-extension.swift in Sources */,
+				9EB30500238C08660082B1B1 /* string-extension.swift in Sources */,
 				9E37AED223854CA100F0BC55 /* ContactTableViewCell.swift in Sources */,
 				9E19444C2383BE3D00CDD5C7 /* AppDelegate.swift in Sources */,
+				9E90D46F238C54CD00AC2844 /* CreateEditContactTableViewCell.swift in Sources */,
+				9EB30506238C2E6D0082B1B1 /* BaseModel.swift in Sources */,
 				9E19444E2383BE3D00CDD5C7 /* SceneDelegate.swift in Sources */,
+				9EB304FE2387F0AA0082B1B1 /* CreateEditContactViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,7 +558,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -564,7 +612,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -579,12 +627,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X54BMA2JT;
 				INFOPLIST_FILE = Contacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.anilkumar.Contacts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aveva.cfsupport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -596,12 +645,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X54BMA2JT;
 				INFOPLIST_FILE = Contacts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.anilkumar.Contacts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aveva.cfsupport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

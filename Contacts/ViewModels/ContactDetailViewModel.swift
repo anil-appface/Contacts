@@ -14,11 +14,12 @@ protocol ContactDetailViewModelDelegate: class {
     func updateTableData()
 }
 
-class ContactDetailViewModel {
+class ContactDetailViewModel : BaseViewModel {
     
     
     var contactDetail: ContactDetail? {
         didSet {
+            contactTableData = []
             contactTableData.append(ContactAttribute(key: "mobile",value: contactDetail?.phoneNumber))
             contactTableData.append(ContactAttribute(key: "email",value: contactDetail?.email))
             
@@ -32,11 +33,10 @@ class ContactDetailViewModel {
     
     private let requester: Requestable = Requester()
     
-    typealias ImageDownloadCompletionClosure = (_ imageData: Data ) -> Void
-    
+
     
     private (set) var contactDetailsUrl = "http://gojek-contacts-app.herokuapp.com/contacts/{id}.json"
-    
+   
     init(_ contactId: Int?) {
         
         guard let id = contactId else {
@@ -58,6 +58,11 @@ extension ContactDetailViewModel {
         return contactTableData[index]
     }
     
+    func toggleFavorite() {
+        contactDetail?.favorite = !(contactDetail?.favorite ?? false)
+        updateContact()
+    }
+    
 }
 
 extension ContactDetailViewModel {
@@ -73,29 +78,7 @@ extension ContactDetailViewModel {
         
     }
     
-    func download(url: String, completionHanlder: @escaping ImageDownloadCompletionClosure)
-    {
-        let sessionConfig = URLSessionConfiguration.default
-        let session = URLSession(configuration: sessionConfig)
-        let request = URLRequest(url:URL.init(string: url)!)
-        
-        let task = session.downloadTask(with: request) { (tempLocalUrl, response, error) in
-            
-            if let tempLocalUrl = tempLocalUrl, error == nil {
-                if let statusCode = (response as? HTTPURLResponse)?.statusCode {
-                    let rawImageData = try? Data.init(contentsOf: tempLocalUrl)
-                    completionHanlder(rawImageData!)
-                    print("Successfully downloaded. Status code: \(statusCode)")
-                }
-            } else {
-                print("Error took place while downloading a file. Error description: \(String(describing: error?.localizedDescription))")
-            }
-        }
-        
-        task.resume()
-        
-    }
-    
+   
     
     
     func fetchContact(forContactId id: Int) {
@@ -112,4 +95,18 @@ extension ContactDetailViewModel {
         }
     }
     
+    
+    
+     func updateContact() {
+         
+        requester.request(parameter: ContactDetail.self, method: .put, url: contactDetailsUrl, httpBody:  contactDetail?.jsonData()) { (result) in
+             switch result {
+             case .success(let response):
+                  self.contactDetail = response
+             case .failure(let error):
+                 print(error)
+             }
+         }
+     }
+     
 }
